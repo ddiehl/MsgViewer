@@ -24,7 +24,7 @@ jobs:
           command: mvn test
       - run:
           name: Package
-          command: /usr/local/jdk-16.0.1/bin/jpackage --type dmg -i ../MSGViewer/target -n "MSG Viewer" --icon "./msg-viewer.icns" --main-class net.sourceforge.MSGViewer.ModuleLauncher --main-jar msgviewer.jar
+          command: /usr/local/jdk-16.0.1/bin/jpackage --type dmg -i target -n "MSG Viewer" --icon "osx-packager/msg-viewer.icns" --main-class net.sourceforge.MSGViewer.ModuleLauncher --main-jar msgviewer.jar
 
 workflows:
   # Below is the definition of your workflow.
