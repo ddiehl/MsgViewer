@@ -9,22 +9,29 @@ jobs:
     # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # Be sure to update the Docker image tag below to openjdk version of your application.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
-    docker:
-      - image: cimg/openjdk:16.0.1
-    steps:
+    macos:
+      xcode: 11.3.0 # indicate our selected version of Xcode
+    steps: # a series of commands to run
+      - checkout  # pull down code from your version control system.
+      - run:
+          name: Run Unit Tests
+          command: java --version
+#    docker:
+#      - image: cimg/openjdk:16.0.1
+#    steps:
       # Checkout the code as the first step.
-      - checkout
+#      - checkout
       # Use mvn clean and package as the standard maven build phase
-      - run:
-          name: Build
-          command: mvn -B -DskipTests clean package
+#      - run:
+#          name: Build
+#          command: mvn -B -DskipTests clean package
       # Then run your tests!
-      - run:
-          name: Test
-          command: mvn test
-      - run:
-          name: Package
-          command: /usr/local/jdk-16.0.1/bin/jpackage --type dmg -i target -n "MSG Viewer" --icon "osx-packager/msg-viewer.icns" --main-class net.sourceforge.MSGViewer.ModuleLauncher --main-jar msgviewer.jar
+#      - run:
+#          name: Test
+#          command: mvn test
+#      - run:
+#          name: Package
+#          command: /usr/local/jdk-16.0.1/bin/jpackage --type dmg -i target -n "MSG Viewer" --icon "osx-packager/msg-viewer.icns" --main-class net.sourceforge.MSGViewer.ModuleLauncher --main-jar msgviewer.jar
 
 workflows:
   # Below is the definition of your workflow.
