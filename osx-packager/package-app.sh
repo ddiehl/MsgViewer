@@ -20,6 +20,7 @@ jpackage --type dmg \
          --main-jar msgviewer.jar
 
 echo "Moving to distribution folder.."
+mkdir ../dist
 mv *.dmg ../dist
 
 echo "packaging complete."
